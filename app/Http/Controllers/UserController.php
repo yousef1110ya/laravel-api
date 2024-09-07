@@ -2,9 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User;
-use App\Http\Requests\StorePostRequest;
-use App\Http\Requests\UpdatePostRequest;
+use Illuminate\Http\Request;
+use Illuminate\Http\JsonResponse;
 
 class UserController extends Controller
 {
@@ -14,20 +13,32 @@ class UserController extends Controller
     public function index()
     {
         //
+        return new JsonResponse([
+            'status' => 200,
+            'data' => [
+                'name' => "get/users"
+            ]
+        ]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreUserRequest $request)
+    public function store(Request $request)
     {
         //
+        return new JsonResponse([
+            'status' => 200,
+            'data' => [
+                'name' => "post/user/create"
+            ]
+        ]);
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(User $User)
+    public function show(string $id)
     {
         //
     }
@@ -35,7 +46,7 @@ class UserController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateUserRequest $request, User $User)
+    public function update(Request $request, string $id)
     {
         //
     }
@@ -43,7 +54,7 @@ class UserController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(User $User)
+    public function destroy(string $id)
     {
         //
     }
